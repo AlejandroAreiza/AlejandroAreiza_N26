@@ -1,0 +1,50 @@
+services:
+
+  petstore-api:
+    image: swaggerapi/petstore3:unstable   # Replace with actual API image name if needed
+    container_name: petstore-api
+    ports:
+      - "8080:8080"
+    networks:
+      - petstoretaf_net
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/api/v3/openapi.json"]
+      interval: 10s
+      retries: 10
+      start_period: 10s
+
+  petstore-api-taf:
+      build:
+        context: .
+        dockerfile: docker/Dockerfile
+      container_name: petstore-api-taf
+      depends_on:
+        petstore-api:
+          condition: service_healthy
+      environment:
+        BASE_URI: http://petstore-api:8080/api 
+        TEST_PROJECT: pet         
+        TEST_FILTER: ""         
+      volumes:
+        - ./TestResults:/app/allure-results
+      networks:
+        - petstoretaf_net
+
+  allure:
+    image: frankescobar/allure-docker-service
+    container_name: allure
+    ports:
+      - "5050:5050"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 2
+      KEEP_HISTORY: 1
+    volumes:
+      - ./TestResults:/app/allure-results
+    networks:
+      - petstoretaf_net
+    depends_on:
+      - petstore-api-taf
+
+networks:
+  petstoretaf_net:
+    driver: bridge

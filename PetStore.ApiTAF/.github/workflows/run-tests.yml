@@ -1,0 +1,57 @@
+name: Run PetStore API Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'release/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      TEST_PROJECT: pet
+      TEST_FILTER: "Category=regression"
+      BASE_URI: http://petstore-api:8080/api
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Compose
+        run: docker compose version
+
+      - name: Start API and Allure containers
+        run: docker-compose up -d petstore-api allure
+
+      - name: Wait for API to be healthy
+        run: |
+          for i in {1..15}; do
+            status=$(docker inspect --format='{{.State.Health.Status}}' petstore-api)
+            echo "Health status: $status"
+            if [ "$status" == "healthy" ]; then break; fi
+            sleep 5
+          done
+
+      - name: Run tests
+        run: |
+          docker-compose run --rm \
+            -e TEST_PROJECT=$TEST_PROJECT \
+            -e TEST_FILTER="$TEST_FILTER" \
+            -e BASE_URI=$BASE_URI \
+            petstore-api-taf
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: ./TestResults
+
+      - name: Stop and clean up containers
+        if: always()
+        run: docker-compose down

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Refit" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Refit" />
+    <Using Include="System.Text.Json.Serialization" />
+    <Using Include="Pet.Domain.DTOs"/>
+    <Using Include="Pet.Domain.Interfaces" />
+    <Using Include="Config.Infrastructure" />
+    <Using Include="NLog" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Config.Infrastructure\Config.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

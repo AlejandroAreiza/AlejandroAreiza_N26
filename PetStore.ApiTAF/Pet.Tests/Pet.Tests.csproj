@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <WarnAsError>false</WarnAsError>
+    <WarnAsErrorForAnalyzer>False</WarnAsErrorForAnalyzer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Allure.NUnit" Version="2.12.1" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="NUnit" Version="4.2.2" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.4.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageReference Include="DotNetToolbox.FluentAssertions" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+    <Using Include="Config.Infrastructure" />
+    <Using Include="Pet.Domain" />
+    <Using Include="Pet.Domain.Interfaces" />
+    <Using Include="FluentAssertions" />
+    <Using Include="System.Net" />
+    <Using Include="Pet.Domain.DTOs" />
+    <Using Include="NUnit.Framework.Interfaces" />
+    <Using Include="Pet.Domain.Clients" />
+    <Using Include="System.Collections" />
+    <Using Include="Pet.Tests.Data" />
+    <Using Include="NLog" />
+    <Using Include="Config.Infrastructure.Logging" />
+    <Using Include="Allure.NUnit" />
+    <Using Include="Allure.NUnit.Attributes" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pet.Domain\Pet.Domain.csproj" />
+    <ProjectReference Include="..\Config.Infrastructure\Config.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
