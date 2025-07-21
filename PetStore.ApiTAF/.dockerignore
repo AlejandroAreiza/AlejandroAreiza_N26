@@ -1,0 +1,38 @@
+# Ignore build outputs and intermediate files since you publish locally
+bin/
+obj/
+
+# Ignore test-related artifacts and folders
+TestResults/
+*.trx
+*.log
+TestLogs/
+screenshots/
+playwright-report/
+.allure/
+allure-results/
+allure-reports/
+
+# Ignore IDE and user settings
+.vscode/
+.idea/
+*.user
+*.suo
+.vs/
+
+# Ignore version control directory
+.git/
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore environment files with secrets
+.env
+*.env.*
+
+# Ignore Docker and Git config files (optional)
+.dockerignore
+.gitignore
+Dockerfile
+docker-compose.yml
