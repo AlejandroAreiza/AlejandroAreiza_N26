@@ -1,0 +1,18 @@
+{
+  "DesiredCapabilities": {
+    "platformName": "Android",
+    "platformVersion": "16",
+    "DeviceName": "sdk_gphone64_arm64",
+    "AppPackage": "com.monefy.app.lite",
+    "AppActivity": "com.monefy.activities.main.MainActivity_",
+    "AutomationName": "UiAutomator2",
+    "NoReset": true,
+    "NewCommandTimeout": 300,
+    "autoGrantPermissions": true,
+    "disableWindowAnimation": true,
+    "udid": "emulator-5554"
+  },
+  "AppConfig": {
+    "AppName": "com.monefy.app.lite"
+  }
+}
