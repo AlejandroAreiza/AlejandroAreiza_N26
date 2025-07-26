@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Config.Infraestructure\Config.Infraestructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="Monefy.Domain.Screens" />
+    <Using Include="OpenQA.Selenium.Appium" />
+    <Using Include="OpenQA.Selenium" />
+    <Using Include="NLog" />
+  </ItemGroup>
+
+</Project>
