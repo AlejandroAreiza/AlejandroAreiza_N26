@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-# Resolve the actual .csproj path based on TEST_PROJECT prefix
+
 if [[ "$TEST_PROJECT" == *.csproj ]]; then
   PROJECT_PATH="$TEST_PROJECT"
 else
-  # Try to find the full path using wildcard search
+ 
   MATCHED_PATH=$(find . -type f -iname "${TEST_PROJECT}.tests.csproj" | head -n 1)
   if [ -z "$MATCHED_PATH" ]; then
     echo "Could not find any test project matching: ${TEST_PROJECT}.tests.csproj"

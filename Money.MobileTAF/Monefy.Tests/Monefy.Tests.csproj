@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="NUnit" Version="4.3.2" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.4.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageReference Include="Allure.NUnit" Version="2.12.1" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="DotNetToolbox.FluentAssertions" Version="9.0.1" />
+    <PackageReference Include="Allure.NUnit" Version="2.12.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+    <Using Include="NLog" />
+    <Using Include="NUnit.Framework.Interfaces" />
+    <Using Include="Config.Infraestructure.DTOs" />
+    <Using Include="Monefy.Domain.Scenario" />
+    <Using Include="FluentAssertions" />
+    <Using Include="OpenQA.Selenium.Appium" />
+    <Using Include="Config.Infraestructure" />
+    <Using Include="Config.Infraestructure.DataProviders" />
+    <Using Include="Monefy.Domain.Models" />
+    <Using Include="System.Globalization" />
+    <Using Include="Monefy.Domain.Helpers" />
+    <Using Include="Allure.NUnit" />
+    <Using Include="Allure.NUnit.Attributes" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Config.Infraestructure\Config.Infraestructure.csproj" />
+    <ProjectReference Include="..\Monefy.Domain\Monefy.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestLaunchConfigData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

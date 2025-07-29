@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Allure.NUnit" Version="2.12.1" />
+    <PackageReference Include="NLog" Version="6.0.1" />
+    <PackageReference Include="Appium.WebDriver" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.Reflection" />
+    <Using Include="System.Text" />
+    <Using Include="NLog" />
+    <Using Include="NLog.Config" />
+    <Using Include="NLog.Targets" />
+    <Using Include="Newtonsoft.Json" />
+    <Using Include="OpenQA.Selenium.Appium" />
+    <Using Include="OpenQA.Selenium.Appium.iOS" />
+    <Using Include="OpenQA.Selenium.Appium.Android" />
+    <Using Include="OpenQA.Selenium" />
+    <Using Include="Config.Infraestructure.DTOs" />
+    <Using Include="System.Text.Json.Serialization" />
+    <Using Include="System.Diagnostics" />
+    <Using Include="OpenQA.Selenium.Support.UI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="..\nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>nlog.config</Link>
+    </None>
+  </ItemGroup>
+
+</Project>
